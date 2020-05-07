@@ -73,7 +73,7 @@ def render_tours(tour_id):
 
 
 if __name__ == '__main__':
-#    app.run('127.0.0.1', 7777, debug=False)
+    #    app.run('127.0.0.1', 7777, debug=False)
     app.run()  # for gunicorn server
 
-#toolbar = DebugToolbarExtension(app)
+# toolbar = DebugToolbarExtension(app)
