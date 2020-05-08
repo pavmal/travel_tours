@@ -26,8 +26,9 @@
                         {% else %} {{tour['title']}} {% endif %}</h2>
                     <p class="card-text">{% if tour['description']|length > 70 %} {{tour['description']|truncate(70)}}
                         {% else %} {{tour['description']}} {% endif %}</p>
-                    <p class="card-text">{{tour['date']}}, {{tour['nights']}} ночей, {{tour['price']}} P
-                        {{tour['stars']}}★</p>
+                    <p class="card-text">{{tour['date']}}, {{tour['nights']}} ночей, {{tour['price']}} ₽
+                        <span class="float-right"> {{tour['stars']}} ★</span>
+                    </p>
                 </div>
             </div>
         </div>

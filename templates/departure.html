@@ -20,13 +20,14 @@
                     <img class="card-img-top embed-responsive-item" src={{tour['picture']}} alt=""/>
                 </div>
                 <div class="card-body">
-                    <h2 class="h5 card-title">{{tour['country']}}: {% if tour['title']|length > 20 %}
-                        {{tour['title']|truncate(20)}}
-                        {% else %} {{tour['title']}} {% endif %}</h2>
+                    <h2 class="h5 card-title">{{tour['country']}}: {% if tour['title']|length > 15 %}
+                        {{tour['title']|truncate(15)}}
+                        {% else %} {{tour['title']}} {% endif %}<span class="float-right"> {{tour['stars']}}★</span>
+                    </h2>
                     <p class="card-text">{% if tour['description']|length > 70 %} {{tour['description']|truncate(70)}}
                         {% else %} {{tour['description']}} {% endif %}</p>
-                    <p class="card-text">{{tour['date']}}, {{tour['nights']}} ночей, {{tour['price']}} P
-                        {{tour['stars']}}★</p>
+                    <p class="card-text">{{tour['date']}}, {{tour['nights']}} ночей, {{tour['price']}} ₽</p>
+
                     <a href="/tours/{{key}}/" class="btn btn-sm btn-primary">Подробнее</a>
                 </div>
             </div>
