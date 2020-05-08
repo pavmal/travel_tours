@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from flask_debugtoolbar import DebugToolbarExtension
+#from flask_debugtoolbar import DebugToolbarExtension
 import data
 
 app = Flask(__name__)
