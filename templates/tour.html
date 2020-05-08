@@ -6,17 +6,18 @@
 
 {% block content %}
 
-  <main class="container">
+<main class="container">
     <section class="mt-3 pb-5">
-      <a class="badge badge-primary" href="/departures/{% for key, val in departure.items() %}{{key}}{% endfor %}/">Назад</a>
-      {% if tour_info %}
-      <h1 class="display-3 mt-4">{{tour_info['title']}} {{star_count}}</h1>
-      <!-- HERO -->
-      <p class="lead">{{tour_info['country']}} {% for val in departure.values() %}{{val}}{% endfor %} {{tour_info['nights']}} ночей</p>
-      <img src={{tour_info['picture']}} class="w-75" alt="">
-      <p class="my-4 w-75">{{tour_info['description']}}</p>
-      <a href="#" class="btn btn-success btn-lg">Купить тур за {{tour_info['price']}} P</a>
-      {% endif %}
+        <a class="badge badge-primary" href="/departures/{% for key, val in departure.items() %}{{key}}{% endfor %}/">Назад</a>
+        {% if tour_info %}
+        <h1 class="display-3 mt-4">{{tour_info['title']}} {{star_count}}</h1>
+        <!-- HERO -->
+        <p class="lead">{{tour_info['country']}} {% for val in departure.values() %}{{val}}{% endfor %}
+            {{tour_info['nights']}} ночей</p>
+        <img src={{tour_info['picture']}} class="w-75" alt="">
+        <p class="my-4 w-75">{{tour_info['description']}}</p>
+        <a href="#" class="btn btn-success btn-lg">Купить тур за {{tour_info['price']}} P</a>
+        {% endif %}
     </section>
-  </main>
+</main>
 {% endblock %}

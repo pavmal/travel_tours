@@ -6,29 +6,32 @@
 
 {% block content %}
 <main class="container mt-4">
-  <section class="jumbotron text-center mt-4">
-      <h2 class="display-3">Всякие туры</h2>
-      <p class="lead">Для тех, кого отвлекают дома</p>
-      <p class="mt-4 w-50 mx-auto">Лучшие направления,где никто не будет вам мешать сидеть на берегу и изучать программирование, дизайн, разработку игр и управление продуктами</p>
+    <section class="jumbotron text-center mt-4">
+        <h2 class="display-3">Всякие туры</h2>
+        <p class="lead">Для тех, кого отвлекают дома</p>
+        <p class="mt-4 w-50 mx-auto">Лучшие направления,где никто не будет вам мешать сидеть на берегу и изучать
+            программирование, дизайн, разработку игр и управление продуктами</p>
     </section>
     <!-- CARDS -->
     <div class="row mt-5">
-      {% for key, tour in tours.items() %}
-      <div class="col-4">
-        <div class="card mb-4">
-          <div class="embed-responsive embed-responsive-16by9">
-             <img class="card-img-top embed-responsive-item" src={{tour['picture']}} alt="" />
-          </div>
-          <div class="card-body">
-            <h2 class="h5 card-title">{{tour['country']}}:  {% if tour['title']|length > 22 %} {{tour['title']|truncate(22)}}
-                {% else %} {{tour['title']}} {% endif %}</h2>
-            <p class="card-text">{% if tour['description']|length > 70 %} {{tour['description']|truncate(70)}}
-                {% else %} {{tour['description']}} {% endif %}</p>
-            <p class="card-text">{{tour['date']}}, {{tour['nights']}} ночей, {{tour['price']}} P {{tour['stars']}}★</p>
-          </div>
+        {% for key, tour in tours.items() %}
+        <div class="col-4">
+            <div class="card mb-4">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <img class="card-img-top embed-responsive-item" src={{tour['picture']}} alt=""/>
+                </div>
+                <div class="card-body">
+                    <h2 class="h5 card-title">{{tour['country']}}: {% if tour['title']|length > 22 %}
+                        {{tour['title']|truncate(22)}}
+                        {% else %} {{tour['title']}} {% endif %}</h2>
+                    <p class="card-text">{% if tour['description']|length > 70 %} {{tour['description']|truncate(70)}}
+                        {% else %} {{tour['description']}} {% endif %}</p>
+                    <p class="card-text">{{tour['date']}}, {{tour['nights']}} ночей, {{tour['price']}} P
+                        {{tour['stars']}}★</p>
+                </div>
+            </div>
         </div>
-      </div>
-      {% endfor %}
+        {% endfor %}
     </div>
 
 </main>
