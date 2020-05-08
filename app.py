@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-#from flask_debugtoolbar import DebugToolbarExtension
+# from flask_debugtoolbar import DebugToolbarExtension
 import data
 
 app = Flask(__name__)
@@ -11,15 +11,8 @@ def render_main():
     Представление главной страницы
     :return: 'Здесь будет Главная страница'
     """
-    #    return render_template('about.html', hour= 13)
-
-        # for tour in data.tours.values():
-        #    print(tour['title'])
-    print(request.path)
     short_list_tours = {num: tour for num, tour in data.tours.items() if tour['stars'] in ['4', '5']}
-#    return render_template('about.html')
-    return render_template('index.html', title_gen=data.title, directions_menu=data.departures,
-                           tours=short_list_tours)
+    return render_template('index.html', title_gen=data.title, directions_menu=data.departures, tours=short_list_tours)
 
 
 @app.route('/about/')
@@ -29,8 +22,7 @@ def render_about():
     :return: Описание сервиса
     """
     short_list_tours = {num: tour for num, tour in data.tours.items() if tour['stars'] in ['4', '5']}
-    return render_template('about.html', title_gen=data.title, directions_menu=data.departures,
-                           tours=short_list_tours)
+    return render_template('about.html', title_gen=data.title, directions_menu=data.departures, tours=short_list_tours)
 
 
 @app.route('/departures/<departure>/')
@@ -49,7 +41,6 @@ def render_departures(departure):
     night_list = []
     for key, val in short_list_tours.items():
         night_list.append(val['nights'])
-    print(price_list)
     return render_template('departure.html', title_gen=data.title, directions_menu=data.departures,
                            departure=direction, tours=short_list_tours, prices=price_list, nights=night_list)
 
@@ -60,10 +51,7 @@ def render_tours(tour_id):
     Представление страницы с турами путешествий
     :return: 'Здесь будет список туров ' + tour_id'
     """
-    print(request.path)
-    #    direct = request.path.split('/')[-4]
     tour_id = request.path.split('/')[-2]
-    print(tour_id)
     tour = data.tours[int(tour_id)]
     direct = data.tours[int(tour_id)]['departure']
     direction = {key: depart for key, depart in data.departures.items() if key == direct}
