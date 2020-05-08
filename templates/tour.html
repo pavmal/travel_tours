@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<title>Stepik Travel - general</title>
+<title>Word Travel tours - {{tour_info['title']}}</title>
 {% endblock %}
 
 {% block content %}
@@ -16,7 +16,7 @@
             {{tour_info['nights']}} ночей</p>
         <img src={{tour_info['picture']}} class="w-75" alt="">
         <p class="my-4 w-75">{{tour_info['description']}}</p>
-        <a href="#" class="btn btn-success btn-lg">Купить тур за {{tour_info['price']}} P</a>
+        <a href="/buy/" class="btn btn-success btn-lg">Купить тур за {{tour_info['price']}} P</a>
         {% endif %}
     </section>
 </main>

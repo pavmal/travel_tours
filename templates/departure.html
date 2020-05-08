@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<title>Stepik Travel - general</title>
+<title>Word Travel tours - и{% for key, val in departure.items() %}{{val[1:]}}{% endfor %}</title>
 {% endblock %}
 
 {% block content %}
@@ -20,8 +20,8 @@
                     <img class="card-img-top embed-responsive-item" src={{tour['picture']}} alt=""/>
                 </div>
                 <div class="card-body">
-                    <h2 class="h5 card-title">{{tour['country']}}: {% if tour['title']|length > 22 %}
-                        {{tour['title']|truncate(22)}}
+                    <h2 class="h5 card-title">{{tour['country']}}: {% if tour['title']|length > 20 %}
+                        {{tour['title']|truncate(20)}}
                         {% else %} {{tour['title']}} {% endif %}</h2>
                     <p class="card-text">{% if tour['description']|length > 70 %} {{tour['description']|truncate(70)}}
                         {% else %} {{tour['description']}} {% endif %}</p>

@@ -15,16 +15,6 @@ def render_main():
     return render_template('index.html', title_gen=data.title, directions_menu=data.departures, tours=short_list_tours)
 
 
-@app.route('/about/')
-def render_about():
-    """
-    Представление страницы "О сервисе"
-    :return: Описание сервиса
-    """
-    short_list_tours = {num: tour for num, tour in data.tours.items() if tour['stars'] in ['4', '5']}
-    return render_template('about.html', title_gen=data.title, directions_menu=data.departures, tours=short_list_tours)
-
-
 @app.route('/departures/<departure>/')
 def render_departures(departure):
     """
@@ -59,6 +49,25 @@ def render_tours(tour_id):
     stars = '★' * int(data.tours[int(tour_id)]['stars'])
     return render_template('tour.html', title_gen=data.title, directions_menu=data.departures,
                            departure=direction, tours=short_list_tours, tour_info=tour, star_count=stars)
+
+
+@app.route('/about/')
+def render_about():
+    """
+    Представление страницы "О сервисе"
+    :return: Описание сервиса
+    """
+    short_list_tours = {num: tour for num, tour in data.tours.items() if tour['stars'] in ['4', '5']}
+    return render_template('about.html', title_gen=data.title, directions_menu=data.departures, tours=short_list_tours)
+
+
+@app.route('/buy/')
+def render_buy():
+    """
+    Представление страницы "О сервисе"
+    :return: Описание сервиса
+    """
+    return render_template('buy.html', title_gen=data.title, directions_menu=data.departures)
 
 
 if __name__ == '__main__':
