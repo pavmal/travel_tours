@@ -12,14 +12,14 @@ def render_main():
     :return: 'Здесь будет Главная страница'
     """
     #    return render_template('about.html', hour= 13)
-    if __name__ == '__main__':
+
         # for tour in data.tours.values():
         #    print(tour['title'])
-        print(request.path)
-        short_list_tours = {num: tour for num, tour in data.tours.items() if tour['stars'] in ['4', '5']}
-        return render_template('about.html')
-        #return render_template('index.html', title_gen=data.title, directions_menu=data.departures,
-        #                       tours=short_list_tours)
+    print(request.path)
+    short_list_tours = {num: tour for num, tour in data.tours.items() if tour['stars'] in ['4', '5']}
+#    return render_template('about.html')
+    return render_template('index.html', title_gen=data.title, directions_menu=data.departures,
+                           tours=short_list_tours)
 
 
 @app.route('/about/')
