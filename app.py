@@ -21,7 +21,7 @@ def render_departures(departure):
     Представление страницы с направлениями для путешествий
     :return: 'Здесь будет список направлений для путешествий'
     """
-    # print(request.path)
+ #   print(request.path)
     direct = request.path.split('/')[-2]
     direction = {key: depart for key, depart in data.departures.items() if key == direct}
     short_list_tours = {num: tour for num, tour in data.tours.items() if tour['departure'] == direct}
