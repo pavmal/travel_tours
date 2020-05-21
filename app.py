@@ -1,3 +1,4 @@
+import random
 from flask import Flask, render_template, request
 # from flask_debugtoolbar import DebugToolbarExtension
 import data
@@ -12,6 +13,12 @@ def render_main():
     :return: 'Здесь будет Главная страница'
     """
     short_list_tours = {num: tour for num, tour in data.tours.items() if tour['stars'] in ['4', '5']}
+    keys = list(short_list_tours.keys())
+    keys = random.sample(keys, k=6)
+    first6 = {}
+    for elem in keys:
+        first6[elem] = short_list_tours.get(elem)
+    short_list_tours = first6
     return render_template('index.html', title_gen=data.title, directions_menu=data.departures, tours=short_list_tours)
 
 
@@ -71,7 +78,7 @@ def render_buy():
 
 
 if __name__ == '__main__':
-    #    app.run('127.0.0.1', 7777, debug=False)
-    app.run()  # for gunicorn server
+    app.run('127.0.0.1', 7777, debug=True)
+#    app.run()  # for gunicorn server
 
 # toolbar = DebugToolbarExtension(app)
